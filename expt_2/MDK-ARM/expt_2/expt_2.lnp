@@ -1,0 +1,26 @@
+--cpu=Cortex-M4.fp
+"expt_2\startup_stm32f407xx.o"
+"expt_2\main.o"
+"expt_2\gpio.o"
+"expt_2\stm32f4xx_it.o"
+"expt_2\stm32f4xx_hal_msp.o"
+"expt_2\stm32f4xx_hal_tim.o"
+"expt_2\stm32f4xx_hal_tim_ex.o"
+"expt_2\stm32f4xx_hal_rcc.o"
+"expt_2\stm32f4xx_hal_rcc_ex.o"
+"expt_2\stm32f4xx_hal_flash.o"
+"expt_2\stm32f4xx_hal_flash_ex.o"
+"expt_2\stm32f4xx_hal_flash_ramfunc.o"
+"expt_2\stm32f4xx_hal_gpio.o"
+"expt_2\stm32f4xx_hal_dma_ex.o"
+"expt_2\stm32f4xx_hal_dma.o"
+"expt_2\stm32f4xx_hal_pwr.o"
+"expt_2\stm32f4xx_hal_pwr_ex.o"
+"expt_2\stm32f4xx_hal_cortex.o"
+"expt_2\stm32f4xx_hal.o"
+"expt_2\stm32f4xx_hal_exti.o"
+"expt_2\system_stm32f4xx.o"
+--strict --scatter "expt_2\expt_2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "expt_2.map" -o expt_2\expt_2.axf
