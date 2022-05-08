@@ -20,6 +20,7 @@
 "expt_7\stm32f4xx_hal.o"
 "expt_7\stm32f4xx_hal_exti.o"
 "expt_7\system_stm32f4xx.o"
+"expt_7\stm32_2.8_lcd.o"
 --strict --scatter "expt_7\expt_7.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

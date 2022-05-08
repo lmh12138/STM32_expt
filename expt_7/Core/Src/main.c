@@ -22,7 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stm32_2.8_lcd.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,7 +42,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+char str1[] = "lmh12138";
+char str2[] = "auto_expt";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -85,7 +86,11 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-
+	STM32_LCD_Init();
+	LCD_Clear(BackColor);
+	LCD_SetTextColor(Blue);
+	LCD_DisplayStringLine(2, (u8*)str1);
+	LCD_DisplayStringLine(4, (u8*)str2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
