@@ -1,0 +1,13 @@
+编码器(较粗线)：
+VCC,GND,Z,B,A
+红色，地,白，紫，灰
+
+HALL：
+VCC,GND,HC,HB,HA
+红色，地,绿，黄，蓝
+
+UVW：黄绿蓝
+
+
+              cache.lee
+               2014.2
