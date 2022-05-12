@@ -3,6 +3,7 @@
 "expt_11\main.o"
 "expt_11\gpio.o"
 "expt_11\adc.o"
+"expt_11\dma.o"
 "expt_11\stm32f4xx_it.o"
 "expt_11\stm32f4xx_hal_msp.o"
 "expt_11\stm32f4xx_hal_adc.o"

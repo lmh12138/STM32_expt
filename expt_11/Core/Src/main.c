@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
+#include "dma.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -89,6 +90,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 
@@ -101,17 +103,25 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		HAL_ADC_Start(&hadc1);
-		HAL_ADC_PollForConversion(&hadc1, 50);
-		if(HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC))
-		{
-			ADC_Value = HAL_ADC_GetValue(&hadc1);
-			LCD_DisplayStringLine(Line0, (u8*)str1);
-			LCD_Draw_NUM(70, 300, ADC_Value);
-			real_vol = 3.3f * ADC_Value / 65535.0f;
-			sprintf(buffer, "%f", real_vol);
-			LCD_DisplayStringLine(Line5, (u8*)buffer);
-		}
+//		HAL_ADC_Start(&hadc1);
+//		HAL_ADC_PollForConversion(&hadc1, 50);
+//		if(HAL_IS_BIT_SET(HAL_ADC_GetState(&hadc1), HAL_ADC_STATE_REG_EOC))
+//		{
+//			ADC_Value = HAL_ADC_GetValue(&hadc1);
+//			LCD_DisplayStringLine(Line0, (u8*)str1);
+//			LCD_Draw_NUM(70, 300, ADC_Value);
+//			real_vol = 3.3f * ADC_Value / 65535.0f;
+//			sprintf(buffer, "%f", real_vol);
+//			LCD_DisplayStringLine(Line5, (u8*)buffer);
+//		}
+		
+		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&ADC_Value, sizeof(ADC_Value));
+		LCD_DisplayStringLine(Line0, (u8*)str1);
+		LCD_Draw_NUM(70, 300, ADC_Value);
+		real_vol = 3.3f * ADC_Value / 65535.0f;
+		sprintf(buffer, "%f", real_vol);
+		LCD_DisplayStringLine(Line5, (u8*)buffer);
+		
 		HAL_Delay(100);
   }
   /* USER CODE END 3 */
