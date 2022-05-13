@@ -18,13 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "dma.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,12 +46,13 @@
 
 /* USER CODE BEGIN PV */
 const uint16_t buffer_size = 10;
-char send_buffer[buffer_size] = "lmh";
+char send_buffer[buffer_size] = "1";
 char recv_buffer[buffer_size];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -91,12 +93,21 @@ int main(void)
   MX_DMA_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	HAL_DMA_DeInit(huart1.hdmatx);
-	HAL_DMA_Init(huart1.hdmatx);
+//	HAL_DMA_DeInit(huart1.hdmatx);
+//	HAL_DMA_Init(huart1.hdmatx);
+	sprintf(send_buffer, "%s", send_buffer);
+	HAL_UART_Transmit_DMA(&huart1, (uint8_t*)send_buffer, sizeof(buffer_size));
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)recv_buffer, sizeof(recv_buffer));
-	HAL_UART_Transmit_DMA(&huart1, (uint8_t*)send_buffer, buffer_size);
   /* USER CODE END 2 */
 
+  /* Init scheduler */
+  osKernelInitialize();  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -160,10 +171,31 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	HAL_UART_Transmit(huart, (uint8_t*)send_buffer, sizeof(send_buffer), 10);
-	HAL_UART_Receive_IT(huart, (uint8_t*)recv_buffer, sizeof(send_buffer));
+		HAL_UART_Transmit_DMA(&huart1, (uint8_t*)send_buffer, sizeof(send_buffer));
+	HAL_UART_Receive_IT(&huart1, (uint8_t*)recv_buffer, sizeof(recv_buffer));
 }
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM14 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM14) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

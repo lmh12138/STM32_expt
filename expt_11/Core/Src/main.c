@@ -93,7 +93,10 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+	STM32_LCD_Init();
+	LCD_Clear(Red);
+	LCD_SetBackColor(Blue);
+	LCD_SetTextColor(White);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -110,15 +113,16 @@ int main(void)
 //			ADC_Value = HAL_ADC_GetValue(&hadc1);
 //			LCD_DisplayStringLine(Line0, (u8*)str1);
 //			LCD_Draw_NUM(70, 300, ADC_Value);
-//			real_vol = 3.3f * ADC_Value / 65535.0f;
+//			real_vol = 3.3f * ADC_Value / 4095.0f;
 //			sprintf(buffer, "%f", real_vol);
 //			LCD_DisplayStringLine(Line5, (u8*)buffer);
 //		}
 		
+		HAL_ADC_Start(&hadc1);
 		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&ADC_Value, sizeof(ADC_Value));
 		LCD_DisplayStringLine(Line0, (u8*)str1);
 		LCD_Draw_NUM(70, 300, ADC_Value);
-		real_vol = 3.3f * ADC_Value / 65535.0f;
+		real_vol = 3.3f * ADC_Value / 4095.0f;
 		sprintf(buffer, "%f", real_vol);
 		LCD_DisplayStringLine(Line5, (u8*)buffer);
 		

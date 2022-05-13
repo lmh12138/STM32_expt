@@ -849,10 +849,11 @@ erwork --depend=expt_10\startup_stm32f407xx.d -oexpt_10\startup_stm32f407xx.o -
 ARM Macro Assembler    Page 14 
 
 
-I.\RTE\_expt_10 -ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include -ID:\Keil
-_v5\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include -
--predefine="__UVISION_VERSION SETA 527" --predefine="_RTE_ SETA 1" --predefine=
-"STM32F407xx SETA 1" --list=startup_stm32f407xx.lst startup_stm32f407xx.s
+I..\Core\Inc -I.\RTE\_expt_10 -ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Inc
+lude -ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32
+F4xx\Include --predefine="__UVISION_VERSION SETA 527" --predefine="_RTE_ SETA 1
+" --predefine="STM32F407xx SETA 1" --list=startup_stm32f407xx.lst startup_stm32
+f407xx.s
 
 
 

@@ -47,13 +47,13 @@ typedef enum
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-	const uint8_t fifo_send_data1[1] = {0x01};
-	const uint8_t fifo_send_data2[1] = {0x02};
-	const uint8_t fifo_send_data3[1] = {0x03};
-	const uint8_t fifo_send_data4[1] = {0x04};
-	uint8_t fifo_recv_buffer[4];
+	const uint8_t fifo_send_data1 = 0x01;
+	const uint8_t fifo_send_data2 = 0x02;
+	const uint8_t fifo_send_data3 = 0x03;
+	const uint8_t fifo_send_data4 = 0x04;
+	uint8_t fifo_recv_buffer[10];
 	uint32_t fifo_result;
-	static const uint32_t SRC_Const_Buffer[32]= {
+	const uint32_t SRC_Const_Buffer[32]= {
  0x01020304,0x05060708,0x090A0B0C,0x0D0E0F10,
  0x11121314,0x15161718,0x191A1B1C,0x1D1E1F20,
  0x21222324,0x25262728,0x292A2B2C,0x2D2E2F30,
@@ -63,8 +63,9 @@ typedef enum
  0x61626364,0x65666768,0x696A6B6C,0x6D6E6F70,
  0x71727374,0x75767778,0x797A7B7C,0x7D7E7F80};
 	uint32_t DST_Buffer[32];
+	uint32_t buffer_size = sizeof(SRC_Const_Buffer);
 	HAL_StatusTypeDef hal_status;
- TestStatus Transfer_status;
+ TestStatus Transfer_status = PASSED;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,7 +109,7 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   /* USER CODE BEGIN 2 */
-//	hal_status = HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&SRC_Const_Buffer, (uint32_t)&DST_Buffer, 32);
+//	hal_status = HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)SRC_Const_Buffer, (uint32_t)DST_Buffer, 32);
 //	if(hal_status == HAL_OK)
 //	{
 //		Transfer_status = Buffercmp(SRC_Const_Buffer, DST_Buffer, 32);
@@ -125,14 +126,11 @@ int main(void)
 //	{
 //		HAL_GPIO_WritePin(GPIOF, GPIO_PIN_2, GPIO_PIN_RESET);
 //	}
-	hal_status = HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data1, (uint32_t)&fifo_recv_buffer, 8) || 
-							HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data2, (uint32_t)&fifo_recv_buffer, 8) ||
-							HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data3, (uint32_t)&fifo_recv_buffer, 8) ||
-							HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data4, (uint32_t)&fifo_recv_buffer, 8);
-	if(hal_status == HAL_OK)
-	{
+		HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data1, (uint32_t)&fifo_recv_buffer, 8);
+		HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data2, (uint32_t)&fifo_recv_buffer, 8);
+		HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data3, (uint32_t)&fifo_recv_buffer, 8);
+		HAL_DMA_Start(&hdma_memtomem_dma2_stream0, (uint32_t)&fifo_send_data4, (uint32_t)&fifo_recv_buffer, 8);
 		fifo_result = (fifo_recv_buffer[0] << 24) + (fifo_recv_buffer[1] << 16) + (fifo_recv_buffer[2] << 8) + fifo_recv_buffer[3];
-	}
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -194,14 +192,12 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 TestStatus Buffercmp(const uint32_t* pBuffer, uint32_t* pBuffer1, uint16_t BufferLength)
 {
-	while(BufferLength--)
+	for(int i = 0; i < BufferLength; i++)
 	{
-		if(*pBuffer != *pBuffer1)
+		if(pBuffer[i] != pBuffer1[i])
 		{
 			return FAILED;
 		}
-		pBuffer++;
-		pBuffer1++;
 	}
 	return PASSED;
 }

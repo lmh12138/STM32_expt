@@ -46,7 +46,7 @@
 
 /* USER CODE BEGIN PV */
 char str1[] = " AD Test: ";
-uint32_t adc_value;
+uint16_t adc_value;
 uint8_t indexWave[] = {1,1,2,2,3,4,6,8,10,14,19,25,33,44,59,80,107,143,191,255,
  255,191,143,107,80,59,44,33,25,19,14,10,8,6,4,3,2,2,1,1};
 /* USER CODE END PV */
@@ -94,14 +94,11 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-	HAL_NVIC_DisableIRQ(DMA2_Stream0_IRQn);
 	STM32_LCD_Init();
 	LCD_Clear(Red);
 	LCD_SetBackColor(Blue);
 	LCD_SetTextColor(White);
 	LCD_DisplayStringLine(Line0, (u8*)str1);
-	HAL_ADC_Start(&hadc1);
-	HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adc_value, sizeof(adc_value));
 	HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   /* USER CODE END 2 */
 
@@ -112,15 +109,17 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		TIM1->CCR1 = adc_value;
-		LCD_Draw_NUM(35, 200, adc_value);
-		HAL_Delay(20);
+//		HAL_ADC_Start(&hadc1);
+//		HAL_ADC_Start_DMA(&hadc1, (uint32_t*)&adc_value, sizeof(adc_value));
+//		TIM1->CCR1 = adc_value;
+//		LCD_Draw_NUM(35, 200, adc_value);
+//		HAL_Delay(20);
 		
-//		for(int i = 0; i < sizeof(indexWave); i++)
-//		{
-//			TIM1->CCR1 = indexWave[i];
-//			HAL_Delay(50);
-//		}
+		for(int i = 0; i < sizeof(indexWave); i++)
+		{
+			TIM1->CCR1 = indexWave[i];
+			HAL_Delay(50);
+		}
   }
   /* USER CODE END 3 */
 }
