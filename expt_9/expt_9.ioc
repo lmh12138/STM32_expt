@@ -1,14 +1,14 @@
 #MicroXplorer Configuration settings - do not modify
 Dma.MEMTOMEM.0.Direction=DMA_MEMORY_TO_MEMORY
 Dma.MEMTOMEM.0.FIFOMode=DMA_FIFOMODE_ENABLE
-Dma.MEMTOMEM.0.FIFOThreshold=DMA_FIFO_THRESHOLD_1QUARTERFULL
+Dma.MEMTOMEM.0.FIFOThreshold=DMA_FIFO_THRESHOLD_FULL
 Dma.MEMTOMEM.0.Instance=DMA2_Stream0
 Dma.MEMTOMEM.0.MemBurst=DMA_MBURST_SINGLE
 Dma.MEMTOMEM.0.MemDataAlignment=DMA_MDATAALIGN_WORD
 Dma.MEMTOMEM.0.MemInc=DMA_MINC_ENABLE
 Dma.MEMTOMEM.0.Mode=DMA_NORMAL
 Dma.MEMTOMEM.0.PeriphBurst=DMA_PBURST_SINGLE
-Dma.MEMTOMEM.0.PeriphDataAlignment=DMA_PDATAALIGN_BYTE
+Dma.MEMTOMEM.0.PeriphDataAlignment=DMA_PDATAALIGN_WORD
 Dma.MEMTOMEM.0.PeriphInc=DMA_PINC_ENABLE
 Dma.MEMTOMEM.0.Priority=DMA_PRIORITY_LOW
 Dma.MEMTOMEM.0.RequestParameters=Instance,Direction,PeriphInc,MemInc,PeriphDataAlignment,MemDataAlignment,Mode,Priority,FIFOMode,FIFOThreshold,MemBurst,PeriphBurst
