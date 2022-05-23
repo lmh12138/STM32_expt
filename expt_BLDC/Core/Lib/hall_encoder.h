@@ -2,6 +2,7 @@
 #define __HALL_ENCODER_H__
 
 #include <stdint.h>
+// #define PID
 
 typedef struct hall_status_t {
     uint8_t status_a;

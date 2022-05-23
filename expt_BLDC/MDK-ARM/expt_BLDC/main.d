@@ -34,6 +34,7 @@ expt_bldc\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 expt_bldc\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 expt_bldc\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 expt_bldc\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+expt_bldc\main.o: ../Core/Inc/adc.h
 expt_bldc\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h
 expt_bldc\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
 expt_bldc\main.o: ../Core/Inc/FreeRTOSConfig.h
@@ -45,11 +46,10 @@ expt_bldc\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrapper
 expt_bldc\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 expt_bldc\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 expt_bldc\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
-expt_bldc\main.o: ../Core/Inc/adc.h
 expt_bldc\main.o: ../Core/Inc/dma.h
+expt_bldc\main.o: ../Core/Inc/gpio.h
 expt_bldc\main.o: ../Core/Inc/tim.h
 expt_bldc\main.o: ../Core/Inc/usart.h
-expt_bldc\main.o: ../Core/Inc/gpio.h
 expt_bldc\main.o: ../Core/Lib/BLDC.h
 expt_bldc\main.o: ../Core/Lib/hall_encoder.h
 expt_bldc\main.o: ../Core/Lib/pid.h

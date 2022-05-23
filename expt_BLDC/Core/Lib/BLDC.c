@@ -70,6 +70,11 @@ void BLDCSend(bldc_t bldc) {
     TIM8->CCR1 = bldc.bldc_pid.output * 10000 / 100;
     TIM8->CCR2 = bldc.bldc_pid.output * 10000 / 100;
     TIM8->CCR3 = bldc.bldc_pid.output * 10000 / 100;
+#ifdef PID
+    TIM8->CCR1 = bldc.pwm * 10000 / 100;
+    TIM8->CCR2 = bldc.pwm * 10000 / 100;
+    TIM8->CCR3 = bldc.pwm * 10000 / 100;
+#endif
     switch (bldc.BLDC_status) {
         case BLDC_AB:
             HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_1);

@@ -45,8 +45,10 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef* htim) {
         VolCalc();
     }
     BLDC_PhaseChange(&bldc);
+#ifdef PID
     bldc.bldc_pid.fdb = bldc.hall.volcity;
     PID_Calc(&bldc.bldc_pid);
+#endif
     BLDCSend(bldc);
     ReadHallStatus(&bldc.hall.hall_status);
     last_time = TIM3->CNT;

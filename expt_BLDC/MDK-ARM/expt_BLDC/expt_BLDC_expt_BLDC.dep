@@ -1,6 +1,6 @@
 Dependencies for Project 'expt_BLDC', Target 'expt_BLDC': (DO NOT MODIFY !)
 F (startup_stm32f407xx.s)(0x628B43F5)(--cpu Cortex-M4.fp -g --apcs=interwork -I ..\Core\Inc-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include--pd "__UVISION_VERSION SETA 527" --pd "_RTE_ SETA 1" --pd "STM32F407xx SETA 1"--list startup_stm32f407xx.lst --xref -o expt_bldc\startup_stm32f407xx.o --depend expt_bldc\startup_stm32f407xx.d)
-F (../Core/Src/main.c)(0x628B4590)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\main.o --omf_browse expt_bldc\main.crf --depend expt_bldc\main.d)
+F (../Core/Src/main.c)(0x628B7276)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\main.o --omf_browse expt_bldc\main.crf --depend expt_bldc\main.d)
 I (../Core/Inc/main.h)(0x6281B912)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x627A6842)
 I (../Core/Inc/stm32f4xx_hal_conf.h)(0x628B43F0)
@@ -35,6 +35,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x627A6842)
+I (../Core/Inc/adc.h)(0x6281B911)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h)(0x627A6847)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x627A6847)
 I (../Core/Inc/FreeRTOSConfig.h)(0x6281B911)
@@ -46,13 +47,12 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x627A6847
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x627A6847)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x627A6847)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h)(0x627A6847)
-I (../Core/Inc/adc.h)(0x6281B911)
 I (../Core/Inc/dma.h)(0x6281B911)
+I (../Core/Inc/gpio.h)(0x6281B90E)
 I (../Core/Inc/tim.h)(0x6281ECE6)
 I (../Core/Inc/usart.h)(0x628B40C4)
-I (../Core/Inc/gpio.h)(0x6281B90E)
 I (../Core/Lib/BLDC.h)(0x628B38D6)
-I (../Core/Lib/hall_encoder.h)(0x628B2A72)
+I (../Core/Lib/hall_encoder.h)(0x628B7230)
 I (../Core/Lib/pid.h)(0x628B3569)
 I (../Core/Lib/potentiometer.h)(0x6281FADD)
 I (../Core/Lcd/stm32_2.8_lcd.h)(0x60434CCE)
@@ -92,7 +92,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x627A6842)
-F (../Core/Src/freertos.c)(0x628B52F8)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\freertos.o --omf_browse expt_bldc\freertos.crf --depend expt_bldc\freertos.d)
+F (../Core/Src/freertos.c)(0x628B72E7)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\freertos.o --omf_browse expt_bldc\freertos.crf --depend expt_bldc\freertos.d)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x627A6847)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E8E2EB2)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
@@ -140,12 +140,13 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x627A6842)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E8E2EB2)
 I (../Core/Lib/BLDC.h)(0x628B38D6)
-I (../Core/Lib/hall_encoder.h)(0x628B2A72)
+I (../Core/Lib/hall_encoder.h)(0x628B7230)
 I (../Core/Lib/pid.h)(0x628B3569)
 I (../Core/Lib/potentiometer.h)(0x6281FADD)
 I (../Core/Inc/adc.h)(0x6281B911)
 I (../Core/Lcd/stm32_2.8_lcd.h)(0x60434CCE)
 I (../Core/Inc/tim.h)(0x6281ECE6)
+I (../Core/Inc/usart.h)(0x628B40C4)
 F (../Core/Src/adc.c)(0x628B43EE)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\adc.o --omf_browse expt_bldc\adc.crf --depend expt_bldc\adc.d)
 I (../Core/Inc/adc.h)(0x6281B911)
 I (../Core/Inc/main.h)(0x6281B912)
@@ -1218,8 +1219,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x627A6847)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x627A6847)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x627A6847)
-F (..\Core\Lib\hall_encoder.c)(0x628B4D71)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\hall_encoder.o --omf_browse expt_bldc\hall_encoder.crf --depend expt_bldc\hall_encoder.d)
-I (..\Core\Lib\hall_encoder.h)(0x628B2A72)
+F (..\Core\Lib\hall_encoder.c)(0x628B71E5)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\hall_encoder.o --omf_browse expt_bldc\hall_encoder.crf --depend expt_bldc\hall_encoder.d)
+I (..\Core\Lib\hall_encoder.h)(0x628B7230)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
 I (..\Core\Lib\BLDC.h)(0x628B38D6)
 I (..\Core\Lib\pid.h)(0x628B3569)
@@ -1260,10 +1261,10 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x627A6842)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x627A6842)
 I (../Core/Inc/tim.h)(0x6281ECE6)
 I (../Core/Inc/usart.h)(0x628B40C4)
-F (..\Core\Lib\hall_encoder.h)(0x628B2A72)()
-F (..\Core\Lib\BLDC.c)(0x628B496C)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\bldc.o --omf_browse expt_bldc\bldc.crf --depend expt_bldc\bldc.d)
+F (..\Core\Lib\hall_encoder.h)(0x628B7230)()
+F (..\Core\Lib\BLDC.c)(0x628B71E9)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/Lib -I ../Core/Lcd-I.\RTE\_expt_BLDC-ID:\Keil_v5\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include-ID:\Keil_v5\Packs\Keil\STM32F4xx_DFP\2.16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="527" -D_RTE_ -DSTM32F407xx -DUSE_HAL_DRIVER -DSTM32F407xx-o expt_bldc\bldc.o --omf_browse expt_bldc\bldc.crf --depend expt_bldc\bldc.d)
 I (..\Core\Lib\BLDC.h)(0x628B38D6)
-I (..\Core\Lib\hall_encoder.h)(0x628B2A72)
+I (..\Core\Lib\hall_encoder.h)(0x628B7230)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E2EB2)
 I (..\Core\Lib\pid.h)(0x628B3569)
 I (..\Core\Lib\potentiometer.h)(0x6281FADD)

@@ -32,6 +32,7 @@
 #include "adc.h"
 #include "stm32_2.8_lcd.h"
 #include "tim.h"
+#include "usart.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,6 +63,7 @@ char str2[] = "PWM:";
 char str3[] = "Ref volcity:";
 char str4[] = "Fdb volcity:";
 char str5[] = "Vbus value:";
+char str6[] = "Lmh test";
 uint8_t button_flag = 0;
 /* USER CODE END Variables */
 /* Definitions for Task1 */
@@ -185,7 +187,8 @@ void StartTask1(void *argument) {
     /* USER CODE BEGIN StartTask1 */
     /* Infinite loop */
     for (;;) {
-        osDelay(10);
+        HAL_UART_Transmit_DMA(&huart1, (uint8_t *)str6, sizeof(str6));
+        osDelay(100);
     }
     /* USER CODE END StartTask1 */
 }

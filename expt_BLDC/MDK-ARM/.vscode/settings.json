@@ -4,6 +4,8 @@
         "potentiometer.h": "c",
         "bldc.h": "c",
         "pid.h": "c",
-        "usart.h": "c"
+        "usart.h": "c",
+        "hall_encoder.h": "c",
+        "stdint.h": "c"
     }
 }

@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "bldc.h": "c",
+        "hall_encoder.h": "c"
+    }
+}

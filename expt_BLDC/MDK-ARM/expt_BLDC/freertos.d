@@ -53,3 +53,4 @@ expt_bldc\freertos.o: ../Core/Lib/potentiometer.h
 expt_bldc\freertos.o: ../Core/Inc/adc.h
 expt_bldc\freertos.o: ../Core/Lcd/stm32_2.8_lcd.h
 expt_bldc\freertos.o: ../Core/Inc/tim.h
+expt_bldc\freertos.o: ../Core/Inc/usart.h
