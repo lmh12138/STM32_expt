@@ -52,5 +52,4 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef* htim) {
     BLDCSend(bldc);
     ReadHallStatus(&bldc.hall.hall_status);
     last_time = TIM3->CNT;
-    HAL_UART_Transmit(&huart1, (uint8_t*)&bldc.BLDC_status, sizeof(bldc.BLDC_status), 10);
 }
