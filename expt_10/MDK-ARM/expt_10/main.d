@@ -43,6 +43,6 @@ expt_10\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 expt_10\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 expt_10\main.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h
 expt_10\main.o: ../Core/Inc/dma.h
-expt_10\main.o: ../Core/Inc/usart.h
 expt_10\main.o: ../Core/Inc/gpio.h
+expt_10\main.o: ../Core/Inc/usart.h
 expt_10\main.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

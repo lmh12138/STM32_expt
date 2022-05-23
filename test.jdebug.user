@@ -1,0 +1,25 @@
+
+GraphedExpression="((bldc).bldc_pid).fdb", Color=#a00909
+GraphedExpression="((bldc).bldc_pid).ref", Color=#09a01b
+GraphedExpression="(bldc).BLDC_status", DisplayFormat=DISPLAY_FORMAT_DEC, Color=#09a087
+OpenDocument="main.c", FilePath="C:/Users/lmh12138/Desktop/stm32_expt/expt_BLDC/Core/Src/main.c", Line=60
+OpenDocument="stm32f4xx_hal_dma.c", FilePath="C:/Users/lmh12138/Desktop/stm32_expt/expt_BLDC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c", Line=834
+OpenDocument="freertos.c", FilePath="C:/Users/lmh12138/Desktop/stm32_expt/expt_BLDC/Core/Src/freertos.c", Line=36
+OpenDocument="BLDC.c", FilePath="C:/Users/lmh12138/Desktop/stm32_expt/expt_BLDC/Core/Lib/BLDC.c", Line=0
+OpenDocument="stm32f4xx_it.c", FilePath="C:/Users/lmh12138/Desktop/stm32_expt/expt_BLDC/Core/Src/stm32f4xx_it.c", Line=220
+OpenDocument="stm32f4xx_hal_adc.c", FilePath="C:/Users/lmh12138/Desktop/stm32_expt/expt_BLDC/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c", Line=2054
+OpenToolbar="Debug", Floating=0, x=0, y=0
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=0, w=514, h=676, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Watched Data 1", DockArea=RIGHT, x=0, y=0, w=818, h=676, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Terminal", DockArea=BOTTOM, x=0, y=0, w=294, h=308, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Data Sampling", DockArea=BOTTOM, x=1, y=0, w=828, h=308, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
+OpenWindow="Console", DockArea=BOTTOM, x=2, y=0, w=796, h=308, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[308;272;100;138]
+TableHeader="Power Sampling", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
+TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
+TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[200;100;100;351]
+TableHeader="Data Sampling Table", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" ((bldc).bldc_pid).fdb";" ((bldc).bldc_pid).ref";" (bldc).BLDC_status"], ColWidths=[100;100;100;100;100]
+TableHeader="Data Sampling Setup", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[160;158;100;100;100;100;100;107;107]
+TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[233;100;100;100;861]
+WatchedExpression="bldc", RefreshRate=5, Window=Watched Data 1
+WatchedExpression="0", Window=Watched Data 1
